@@ -23,10 +23,12 @@ function App() {
       });
   };
 
+  const updateData = (id) => {
+    navigate(`/update/${id}`);
+  };
+
   const deleteData = (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure to delete the item?"
-    );
+    const confirmDelete = window.confirm("Are you sure to delete the item?");
 
     if (confirmDelete) {
       axios
@@ -83,9 +85,19 @@ function App() {
             >
               <img src={item.image} className="w-full h-[40vh]" />
               <p className="text-xl">{item.name}</p>
-              <button onClick={() => deleteData(item.id)} className="btn bg-red-950 text-white hover:bg-gray-400 hover:text-black">
-                Delete
-              </button>
+              <div className="flex justify-evenly items-center gap-3">
+                <Link to={`/update/${item.id}`}>
+                  <button className="btn bg-green-800 text-white hover:bg-gray-400 hover:text-black">
+                    Update
+                  </button>
+                </Link>
+                <button
+                  onClick={() => deleteData(item.id)}
+                  className="btn bg-red-950 text-white hover:bg-gray-400 hover:text-black"
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           );
         })}

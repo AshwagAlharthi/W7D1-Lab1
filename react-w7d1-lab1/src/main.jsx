@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./About.jsx";
 import Search from "./Search.jsx";
+import Update from "./Update.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/search/:keyword",
     element: <Search />,
+  },
+  {
+    path: "/update/:id",
+    element: <Update />,
   },
 ]);
 
